@@ -1,0 +1,13 @@
+:root {
+  --color-primary: #66B9A4;
+  --color-secondary: #ed5a6b;
+  --color-primary-translucent: #ed5a6baa;
+  --background-input: #F1F1F1;
+  --transition-fast: .25s;
+  --transition-normal: .5s;
+  --outline-width: 3px;
+  --rounded-radius: 8px;
+  --hover-brightness-dim: .92;
+}
+
+/*# sourceMappingURL=variables.css.map */

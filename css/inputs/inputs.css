@@ -1,0 +1,13 @@
+input {
+  padding: 0.6rem;
+  border: none;
+  font-size: 1rem;
+  background: var(--background-input);
+  transition: box-shadow var(--transition-fast);
+}
+input:hover, input:focus {
+  box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+  outline: none;
+}
+
+/*# sourceMappingURL=inputs.css.map */

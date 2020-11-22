@@ -1,0 +1,160 @@
+button {
+
+	&.hover {
+		transition: filter var(--transition-fast);
+
+		&:hover,
+		&:focus {
+			filter: brightness(var(--hover-brightness-dim));
+		}
+	}
+
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+	@mixin hover-fill-outline($mode) {
+
+		$expansionAmount: 20px;
+
+		background: none;
+		transition-duration: var(--transition-fast);
+		transition-property: box-shadow, color;
+
+		@if $mode == outline {
+			box-shadow: inset 0 0 0 $expansionAmount var(--color-primary);
+		}
+		@else {
+			box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+			color: var(--color-primary);
+		}
+
+		&:hover,
+		&:focus {
+
+			@if $mode == outline {
+				box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+				color: var(--color-primary);
+			}
+			@else {
+				box-shadow: inset 0 0 0 $expansionAmount var(--color-primary);
+				color: white;
+			}
+		}
+	}
+
+	&.hover-outline {
+		@include hover-fill-outline(outline);
+	}
+
+	&.hover-fill {
+		@include hover-fill-outline(fill);
+	}
+
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+	@mixin hover-fill-direction($direction) {
+
+		$isVertical: $direction == up or $direction == down;
+
+		@if $direction == left {
+			background: linear-gradient(to left, var(--color-primary) 50%, transparent 50%);
+		}
+		@if $direction == right {
+			background: linear-gradient(to right, transparent 50%, var(--color-primary) 50%);
+		}
+		@if $direction == up {
+			background: linear-gradient(to top, var(--color-primary) 50%, transparent 50%);
+		}
+		@if $direction == down {
+			background: linear-gradient(to bottom, transparent 50%, var(--color-primary) 50%);
+		}
+
+		@if $isVertical {
+			background-size: 100% 200%;
+		}
+		@else {
+			background-size: 200%;
+		}
+
+		color: var(--color-primary);
+		box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+		transition-duration: var(--transition-fast);
+		transition-property: background-position, color;
+
+		&:hover,
+		&:focus {
+			color: white;
+
+			@if $direction == left {
+				background-position-x: 100%;
+			}
+			@if $direction == right {
+				background-position-x: -100%;
+			}
+			@if $direction == up {
+				background-position-y: 100%;
+			}
+			@if $direction == down {
+				background-position-y: -100%;
+			}
+		}
+	}
+
+	&.hover-fill-down {
+		@include hover-fill-direction(down);
+	}
+
+	&.hover-fill-up {
+		@include hover-fill-direction(up);
+	}
+
+	&.hover-fill-right {
+		@include hover-fill-direction(right);
+	}
+
+	&.hover-fill-left {
+		@include hover-fill-direction(left);
+	}
+
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+	&.hover-fill-color-left {
+		position: relative;
+		background: linear-gradient(to left, var(--color-primary) 50%, var(--color-secondary) 50%);
+		background-size: 200%;
+		background-position-x: right;
+		transition: background-position-x var(--transition-fast);
+
+		&:hover,
+		&:focus {
+			background-position-x: left;
+		}
+	}
+
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+	&.hover-expand-outer {
+		position: relative;
+		box-sizing: content-box;
+		background-clip: padding-box;
+		box-shadow: 0 0 0 0px var(--color-primary);
+		transition: box-shadow var(--transition-normal);
+
+		&:hover,
+		&:focus {
+			box-shadow: 0 0 0 8px transparent;
+		}
+	}
+
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+	&.grow {
+		position: relative;
+		box-shadow: 0 0 0 0px var(--color-primary);
+		transition: box-shadow var(--transition-fast);
+
+		&:hover,
+		&:focus {
+			box-shadow: 0 0 0 3px var(--color-primary);
+		}
+	}
+}

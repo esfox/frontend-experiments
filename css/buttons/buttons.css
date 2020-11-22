@@ -1,0 +1,150 @@
+button {
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+}
+button.hover {
+  transition: filter var(--transition-fast);
+}
+button.hover:hover, button.hover:focus {
+  filter: brightness(var(--hover-brightness-dim));
+}
+button.hover-outline {
+  background: none;
+  transition-duration: var(--transition-fast);
+  transition-property: box-shadow, color;
+  box-shadow: inset 0 0 0 20px var(--color-primary);
+}
+button.hover-outline:hover, button.hover-outline:focus {
+  box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+  color: var(--color-primary);
+}
+button.hover-fill {
+  background: none;
+  transition-duration: var(--transition-fast);
+  transition-property: box-shadow, color;
+  box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+  color: var(--color-primary);
+}
+button.hover-fill:hover, button.hover-fill:focus {
+  box-shadow: inset 0 0 0 20px var(--color-primary);
+  color: white;
+}
+button.hover-fill-down {
+  background: linear-gradient(to bottom, transparent 50%, var(--color-primary) 50%);
+  background-size: 100% 200%;
+  color: var(--color-primary);
+  box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+  transition-duration: var(--transition-fast);
+  transition-property: background-position, color;
+}
+button.hover-fill-down:hover, button.hover-fill-down:focus {
+  color: white;
+  background-position-y: -100%;
+}
+button.hover-fill-up {
+  background: linear-gradient(to top, var(--color-primary) 50%, transparent 50%);
+  background-size: 100% 200%;
+  color: var(--color-primary);
+  box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+  transition-duration: var(--transition-fast);
+  transition-property: background-position, color;
+}
+button.hover-fill-up:hover, button.hover-fill-up:focus {
+  color: white;
+  background-position-y: 100%;
+}
+button.hover-fill-right {
+  background: linear-gradient(to right, transparent 50%, var(--color-primary) 50%);
+  background-size: 200%;
+  color: var(--color-primary);
+  box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+  transition-duration: var(--transition-fast);
+  transition-property: background-position, color;
+}
+button.hover-fill-right:hover, button.hover-fill-right:focus {
+  color: white;
+  background-position-x: -100%;
+}
+button.hover-fill-left {
+  background: linear-gradient(to left, var(--color-primary) 50%, transparent 50%);
+  background-size: 200%;
+  color: var(--color-primary);
+  box-shadow: inset 0 0 0 var(--outline-width) var(--color-primary);
+  transition-duration: var(--transition-fast);
+  transition-property: background-position, color;
+}
+button.hover-fill-left:hover, button.hover-fill-left:focus {
+  color: white;
+  background-position-x: 100%;
+}
+button.hover-fill-color-left {
+  position: relative;
+  background: linear-gradient(to left, var(--color-primary) 50%, var(--color-secondary) 50%);
+  background-size: 200%;
+  background-position-x: right;
+  transition: background-position-x var(--transition-fast);
+}
+button.hover-fill-color-left:hover, button.hover-fill-color-left:focus {
+  background-position-x: left;
+}
+button.hover-expand-outer {
+  position: relative;
+  box-sizing: content-box;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 0px var(--color-primary);
+  transition: box-shadow var(--transition-normal);
+}
+button.hover-expand-outer:hover, button.hover-expand-outer:focus {
+  box-shadow: 0 0 0 8px transparent;
+}
+button.grow {
+  position: relative;
+  box-shadow: 0 0 0 0px var(--color-primary);
+  transition: box-shadow var(--transition-fast);
+}
+button.grow:hover, button.grow:focus {
+  box-shadow: 0 0 0 3px var(--color-primary);
+}
+
+button.ripple {
+  position: relative;
+  overflow: hidden;
+}
+button.ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: radial-gradient(circle, white 10%, transparent 10%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform var(--transition-normal), opacity calc(var(--transition-normal) * 2);
+}
+button.ripple:active:after {
+  transform: scale(0, 0);
+  opacity: 0.2;
+  transition: transform 0s;
+}
+
+button {
+  border: none;
+  color: white;
+  background: var(--color-primary);
+  padding: 10px 20px;
+}
+button:hover {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+
+/*# sourceMappingURL=buttons.css.map */

@@ -1,0 +1,8 @@
+.rounded {
+  border-radius: var(--rounded-radius);
+}
+.rounded::before, .rounded::after {
+  border-radius: var(--rounded-radius);
+}
+
+/*# sourceMappingURL=rounded.css.map */

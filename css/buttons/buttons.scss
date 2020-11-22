@@ -1,0 +1,17 @@
+@use 'button-hover.scss';
+@use 'button-active.scss';
+
+button {
+	border: none;
+	color: white;
+	background: var(--color-primary);
+	padding: 10px 20px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}

@@ -1,0 +1,8 @@
+.rounded {
+	border-radius: var(--rounded-radius);
+
+	&::before,
+	&::after {
+		border-radius: var(--rounded-radius);
+	}
+}
